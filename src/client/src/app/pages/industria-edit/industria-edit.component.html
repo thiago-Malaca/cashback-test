@@ -1,0 +1,56 @@
+<!-- TITLE -->
+<div class="mb-40 mt-40">
+    <h1>Industria Edit</h1>
+</div>
+<div class="card mb-40">
+    <div class="card-header">
+        <i class="fa fa-edit"></i> Edit
+    </div>
+    <div class="card-body">
+        <form #editForm="ngForm" [ngClass]="{'was-validated': formValid!=null}">
+            <div class="row justify-content-md-center">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label for="cnpj">Cnpj *</label>
+                        <input type="text" class="form-control" id="cnpj" [(ngModel)]="item.cnpj" name="cnpj" #cnpj="ngModel" required>
+                        <div class="invalid-feedback">Value is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="codigoInterno">CodigoInterno *</label>
+                        <input type="text" class="form-control" id="codigoInterno" [(ngModel)]="item.codigoInterno" name="codigoInterno" #codigoInterno="ngModel" required>
+                        <div class="invalid-feedback">Value is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="nomeFantasia">NomeFantasia *</label>
+                        <input type="text" class="form-control" id="nomeFantasia" [(ngModel)]="item.nomeFantasia" name="nomeFantasia" #nomeFantasia="ngModel" required>
+                        <div class="invalid-feedback">Value is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="senhaBIopcional">SenhaBIopcional</label>
+                        <input type="text" class="form-control" id="senhaBIopcional" [(ngModel)]="item.senhaBIopcional" name="senhaBIopcional" #senhaBIopcional="ngModel" >
+                    </div>
+                    <div class="form-group">
+                        <label for="urlFotoIndustriaopcional">UrlFotoIndustriaopcional</label>
+                        <input type="text" class="form-control" id="urlFotoIndustriaopcional" [(ngModel)]="item.urlFotoIndustriaopcional" name="urlFotoIndustriaopcional" #urlFotoIndustriaopcional="ngModel" >
+                    </div>
+                    <!-- RELATIONS -->
+                    
+
+
+                    <h2 *ngIf="externalProduto_Industria[0]">External Relations</h2>
+        
+                        <h3 *ngIf="externalProduto_Industria[0]">Produto</h3>
+                        <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let item of externalProduto_Industria">{{item._id}}</li>
+                        </ul>
+
+                    <!-- BUTTON BAR -->
+                    <div class="mt-40">
+                        <button class="btn btn-primary pull-right" (click)="save(editForm.valid, item)">Save</button>
+                        <button class="btn btn-secondary pull-right mr-2" (click)="goBack()">Back To List</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
